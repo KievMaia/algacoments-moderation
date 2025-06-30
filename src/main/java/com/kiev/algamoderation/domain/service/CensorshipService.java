@@ -19,8 +19,8 @@ public class CensorshipService {
     private static final Pattern FORBIDDEN_WORDS_PATTERN;
 
     static {
-        String regex = "\\b(" + String.join("|", FORBIDDEN_WORDS) + ")\\b";
-        FORBIDDEN_WORDS_PATTERN = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+        var regex = "\\b(" + String.join("|", FORBIDDEN_WORDS) + ")\\b";
+        FORBIDDEN_WORDS_PATTERN = Pattern.compile(regex, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CHARACTER_CLASS);
     }
 
     public ModerationOutput analyze(String text) {
